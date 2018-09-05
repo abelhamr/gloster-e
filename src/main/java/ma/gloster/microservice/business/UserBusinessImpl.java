@@ -34,19 +34,4 @@ public class UserBusinessImpl implements IUserBusiness {
 		userRepository.updateUser(userDto.getAddress(), userDto.getStatus(), userDto.getEmail());
 		logger.info("< Fin UserBusinessImpl.updateUser");
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * ma.gloster.microservice.business.IUserBusiness#AfficherUser(ma.gloster.
-	 * microservice.dto.UserDto)
-	 */
-	public void AfficherUser(UserDto userDto) {
-		logger.info("> Début UserBusinessImpl.AfficherUser");
-		System.out.println(userDto.getAddress());
-		System.out.println(userDto.getEmail());
-		System.out.println(userDto.getStatus());
-		logger.info("< Fin UserBusinessImpl.AfficherUser");
-	}
 }

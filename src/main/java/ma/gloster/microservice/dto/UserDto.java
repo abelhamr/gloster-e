@@ -1,6 +1,5 @@
 package ma.gloster.microservice.dto;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserDto.
  */
