@@ -7,6 +7,7 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import ma.gloster.microservice.business.IUserBusiness;
 import ma.gloster.microservice.dto.UserDto;
+import ma.gloster.microservice.exception.BusinessException;
 
 /**
  * The Class UserWriterImpl.
@@ -32,7 +33,7 @@ public class UserWriterImpl implements ItemWriter<UserDto> {
 	 * @see org.springframework.batch.item.ItemWriter#write(java.util.List)
 	 */
 	@Override
-	public void write(List<? extends UserDto> listUser) throws Exception {
+	public void write(List<? extends UserDto> listUser) throws BusinessException {
 		logger.info("> Début UserWriterImpl.write");
 		for (UserDto userDto : listUser) {
 			userBusiness.updateUser(userDto);

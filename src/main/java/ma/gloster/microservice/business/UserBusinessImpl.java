@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ma.gloster.microservice.dto.UserDto;
+import ma.gloster.microservice.exception.BusinessException;
 import ma.gloster.microservice.repository.UserRepository;
 
 /**
@@ -28,7 +29,7 @@ public class UserBusinessImpl implements IUserBusiness {
 	 * ma.gloster.microservice.business.IUserBusiness#updateUser(ma.gloster.
 	 * microservice.dto.UserDto)
 	 */
-	public void updateUser(UserDto userDto) {
+	public void updateUser(UserDto userDto) throws BusinessException {
 		logger.info("> Début UserBusinessImpl.updateUser");
 		userRepository.updateUser(userDto.getAddress(), userDto.getStatus(), userDto.getEmail());
 		logger.info("< Fin UserBusinessImpl.updateUser");

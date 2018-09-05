@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import ma.gloster.microservice.exception.ApplicationException;
+import ma.gloster.microservice.exception.BusinessException;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 import org.apache.log4j.Logger;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
@@ -20,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringBootApplication
 @EnableScheduling
 public class GlosterApplication {
-	
+
 	@Autowired(required = true)
 	public JobLauncher jobLauncher;
 
@@ -32,13 +36,15 @@ public class GlosterApplication {
 
 	@Scheduled(cron = "${spring.scheduler.userInJob}")
 	public void performUserInJob() throws ApplicationException {
+		logger.info("< Début GlosterApplication.performUserInJob");
 		try {
 			JobParameters jobParameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
 					.toJobParameters();
 			jobLauncher.run(usersInJob, jobParameters);
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error(ApplicationException.getStackTrace(e));
 		}
+		logger.info("> Fin GlosterApplication.performUserInJob");
 	}
 
 	public static void main(String[] args) throws Exception {

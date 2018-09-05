@@ -74,6 +74,13 @@ public class UserEntity {
 	private String numCompte;
 
 	/**
+	 * Instantiates a new user entity.
+	 */
+	public UserEntity() {
+		super();
+	}
+
+	/**
 	 * Gets the id user.
 	 *
 	 * @return the id user
@@ -99,58 +106,6 @@ public class UserEntity {
 	 */
 	public String getNom() {
 		return nom;
-	}
-
-	/**
-	 * Instantiates a new user entity.
-	 *
-	 * @param idUser
-	 *            the id user
-	 * @param nom
-	 *            the nom
-	 * @param prenom
-	 *            the prenom
-	 * @param matricule
-	 *            the matricule
-	 * @param email
-	 *            the email
-	 * @param cin
-	 *            the cin
-	 * @param adress
-	 *            the adress
-	 * @param statut
-	 *            the statut
-	 * @param dateCreation
-	 *            the date creation
-	 * @param dateDernierConnexion
-	 *            the date dernier connexion
-	 * @param idProfil
-	 *            the id profil
-	 * @param idCodeExploitant
-	 *            the id code exploitant
-	 * @param agenceId
-	 *            the agence id
-	 * @param numCompte
-	 *            the num compte
-	 */
-	public UserEntity(Long idUser, String nom, String prenom, String matricule, String email, String cin, String adress,
-			String statut, Date dateCreation, Date dateDernierConnexion, Long idProfil, Long idCodeExploitant,
-			Long agenceId, String numCompte) {
-		super();
-		this.idUser = idUser;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.matricule = matricule;
-		this.email = email;
-		this.cin = cin;
-		this.adress = adress;
-		this.statut = statut;
-		this.dateCreation = dateCreation;
-		this.dateDernierConnexion = dateDernierConnexion;
-		this.idProfil = idProfil;
-		this.idCodeExploitant = idCodeExploitant;
-		this.agenceId = agenceId;
-		this.numCompte = numCompte;
 	}
 
 	/**

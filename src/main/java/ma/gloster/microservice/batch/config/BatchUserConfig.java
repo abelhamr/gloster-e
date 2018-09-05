@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import ma.gloster.microservice.dto.UserDto;
+import ma.gloster.microservice.exception.BusinessException;
 import ma.gloster.microservice.batch.writer.UserWriterImpl;
 import ma.gloster.microservice.batch.processor.UserProcessorImpl;
 import ma.gloster.microservice.batch.reader.UserReaderImpl;
@@ -55,7 +56,7 @@ public class BatchUserConfig {
 	private static final Logger logger = Logger.getLogger(BatchUserConfig.class);
 
 	@Bean
-	public Job job() {
+	public Job job() throws BusinessException {
 		logger.info("< Démarage BatchUserConfig.job");
 		return jobBuilderFactory.get(usersInJob).incrementer(new RunIdIncrementer()).flow(step1()).end().build();
 	}
@@ -64,9 +65,10 @@ public class BatchUserConfig {
 	 * Step 1.
 	 *
 	 * @return the step
+	 * @throws BusinessException 
 	 */
 	@Bean
-	public Step step1() {
+	public Step step1() throws BusinessException {
 		logger.info("< Démarage BatchUserConfig.step1");
 		return stepBuilderFactory.get("step1").<UserDto, UserDto>chunk(2).reader(read())
 				.processor(new UserProcessorImpl()).writer(write()).build();
@@ -78,7 +80,7 @@ public class BatchUserConfig {
 	 * @return the user writer impl
 	 */
 	@Bean
-	public UserWriterImpl write() {
+	public UserWriterImpl write() throws BusinessException{
 		logger.info("< Démarage BatchUserConfig.UserWriterImpl");
 		return new UserWriterImpl();
 	}
