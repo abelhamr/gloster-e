@@ -18,7 +18,7 @@ public class UserWriterImpl implements ItemWriter<UserDto> {
 	private static final Logger logger = Logger.getLogger(UserWriterImpl.class);
 	/** The user business. */
 	@Autowired
-	public IUserBusiness userBusiness;
+	private IUserBusiness userBusiness;
 
 	/**
 	 * Instantiates a new user writer impl.

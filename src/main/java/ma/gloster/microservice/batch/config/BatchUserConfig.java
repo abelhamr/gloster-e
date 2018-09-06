@@ -27,13 +27,9 @@ import ma.gloster.microservice.batch.reader.UserReaderImpl;
 @EnableScheduling
 public class BatchUserConfig {
 
-	/** The job builder factory. */
-	@Autowired
-	public JobBuilderFactory jobBuilderFactory;
-
 	/** The step builder factory. */
 	@Autowired
-	public StepBuilderFactory stepBuilderFactory;
+	private StepBuilderFactory stepBuilderFactory;
 
 	/** The users in job. */
 	@Value("${spring.job.userInJob.name}")
@@ -56,8 +52,8 @@ public class BatchUserConfig {
 	private static final Logger logger = Logger.getLogger(BatchUserConfig.class);
 
 	@Bean
-	public Job job() throws BusinessException {
-		logger.info("< Démarage BatchUserConfig.job");
+	public Job job(JobBuilderFactory jobBuilderFactory) {
+		logger.info("< Début BatchUserConfig.job");
 		return jobBuilderFactory.get(usersInJob).incrementer(new RunIdIncrementer()).flow(step1()).end().build();
 	}
 
@@ -65,11 +61,11 @@ public class BatchUserConfig {
 	 * Step 1.
 	 *
 	 * @return the step
-	 * @throws BusinessException 
+	 * @throws BusinessException
 	 */
 	@Bean
-	public Step step1() throws BusinessException {
-		logger.info("< Démarage BatchUserConfig.step1");
+	public Step step1() {
+		logger.info("< Début BatchUserConfig.step1");
 		return stepBuilderFactory.get("step1").<UserDto, UserDto>chunk(2).reader(read())
 				.processor(new UserProcessorImpl()).writer(write()).build();
 	}
@@ -80,8 +76,8 @@ public class BatchUserConfig {
 	 * @return the user writer impl
 	 */
 	@Bean
-	public UserWriterImpl write() throws BusinessException{
-		logger.info("< Démarage BatchUserConfig.UserWriterImpl");
+	public UserWriterImpl write() {
+		logger.info("< Début BatchUserConfig.UserWriterImpl");
 		return new UserWriterImpl();
 	}
 
@@ -92,7 +88,7 @@ public class BatchUserConfig {
 	 */
 	@Bean
 	public FlatFileItemReader<UserDto> read() {
-		logger.info("< Démarage BatchUserConfig.FlatFileItemReader");
+		logger.info("< Début BatchUserConfig.FlatFileItemReader");
 		return new UserReaderImpl().reader(userInJobHeader, fileInputPath);
 	}
 }

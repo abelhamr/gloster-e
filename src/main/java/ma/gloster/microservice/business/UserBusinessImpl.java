@@ -31,7 +31,11 @@ public class UserBusinessImpl implements IUserBusiness {
 	 */
 	public void updateUser(UserDto userDto) throws BusinessException {
 		logger.info("> Début UserBusinessImpl.updateUser");
-		userRepository.updateUser(userDto.getAddress(), userDto.getStatus(), userDto.getEmail());
+		try {
+			userRepository.updateUser(userDto.getAddress(), userDto.getStatus(), userDto.getEmail());
+		} catch (Exception e) {
+			throw new BusinessException(e);
+		}
 		logger.info("< Fin UserBusinessImpl.updateUser");
 	}
 }

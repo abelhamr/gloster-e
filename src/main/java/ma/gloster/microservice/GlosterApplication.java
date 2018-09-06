@@ -6,10 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import ma.gloster.microservice.exception.ApplicationException;
-import ma.gloster.microservice.exception.BusinessException;
-
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import org.apache.log4j.Logger;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
@@ -43,11 +39,12 @@ public class GlosterApplication {
 			jobLauncher.run(usersInJob, jobParameters);
 		} catch (Exception e) {
 			logger.error(ApplicationException.getStackTrace(e));
+			throw new ApplicationException(e);
 		}
 		logger.info("> Fin GlosterApplication.performUserInJob");
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		logger.info("< Démarage de l'application");
 		SpringApplication.run(GlosterApplication.class, args);
 		logger.info("> Arrêt de l'application");
