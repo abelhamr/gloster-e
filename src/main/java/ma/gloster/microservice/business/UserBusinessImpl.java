@@ -2,6 +2,7 @@ package ma.gloster.microservice.business;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ma.gloster.microservice.dto.UserDto;
@@ -14,6 +15,13 @@ import ma.gloster.microservice.repository.UserRepository;
 @Transactional
 @Service
 public class UserBusinessImpl implements IUserBusiness {
+
+	@Value("${spring.controler.userInJob.password}")
+	private String password;
+
+	/** The email. */
+	@Value("${spring.controler.userInJob.login}")
+	private String login;
 
 	/** The Constant logger. */
 	private static final Logger logger = Logger.getLogger(UserBusinessImpl.class);
@@ -37,5 +45,10 @@ public class UserBusinessImpl implements IUserBusiness {
 			throw new BusinessException(e);
 		}
 		logger.info("< Fin UserBusinessImpl.updateUser");
+	}
+
+	@Override
+	public boolean authenticateUser(String login, String password) {
+		return !login.isEmpty() && !password.isEmpty() && login.equals(this.login) && password.equals(this.password);
 	}
 }

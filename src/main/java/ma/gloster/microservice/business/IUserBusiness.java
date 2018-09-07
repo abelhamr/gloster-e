@@ -16,4 +16,6 @@ public interface IUserBusiness {
 	 * @throws BusinessException
 	 */
 	public void updateUser(UserDto userDto) throws BusinessException;
+
+	boolean authenticateUser(String login, String password);
 }

@@ -6,7 +6,7 @@ package ma.gloster.microservice.dto;
 public class UserDto {
 
 	/** The user id. */
-	private int userId;
+	private Long userId;
 
 	/** The first name. */
 	private String firstName;
@@ -42,9 +42,12 @@ public class UserDto {
 	/**
 	 * Instantiates a new user dto.
 	 *
-	 * @param add the add
-	 * @param email the email
-	 * @param status the status
+	 * @param add
+	 *            the add
+	 * @param email
+	 *            the email
+	 * @param status
+	 *            the status
 	 */
 	public UserDto(String add, String email, String status) {
 		this.address = add;
@@ -57,16 +60,17 @@ public class UserDto {
 	 *
 	 * @return the user id
 	 */
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * Sets the user id.
 	 *
-	 * @param userId the new user id
+	 * @param userId
+	 *            the new user id
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -82,7 +86,8 @@ public class UserDto {
 	/**
 	 * Sets the first name.
 	 *
-	 * @param firstName the new first name
+	 * @param firstName
+	 *            the new first name
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -100,7 +105,8 @@ public class UserDto {
 	/**
 	 * Sets the last name.
 	 *
-	 * @param lastName the new last name
+	 * @param lastName
+	 *            the new last name
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -118,7 +124,8 @@ public class UserDto {
 	/**
 	 * Sets the registration number.
 	 *
-	 * @param registrationNumber the new registration number
+	 * @param registrationNumber
+	 *            the new registration number
 	 */
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
@@ -136,7 +143,8 @@ public class UserDto {
 	/**
 	 * Sets the email.
 	 *
-	 * @param email the new email
+	 * @param email
+	 *            the new email
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -154,7 +162,8 @@ public class UserDto {
 	/**
 	 * Sets the address.
 	 *
-	 * @param address the new address
+	 * @param address
+	 *            the new address
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -172,7 +181,8 @@ public class UserDto {
 	/**
 	 * Sets the agency id.
 	 *
-	 * @param agencyId the new agency id
+	 * @param agencyId
+	 *            the new agency id
 	 */
 	public void setAgencyId(int agencyId) {
 		this.agencyId = agencyId;
@@ -190,7 +200,8 @@ public class UserDto {
 	/**
 	 * Sets the account number.
 	 *
-	 * @param accountNumber the new account number
+	 * @param accountNumber
+	 *            the new account number
 	 */
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
@@ -208,7 +219,8 @@ public class UserDto {
 	/**
 	 * Sets the status.
 	 *
-	 * @param status the new status
+	 * @param status
+	 *            the new status
 	 */
 	public void setStatus(String status) {
 		this.status = status;
