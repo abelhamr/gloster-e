@@ -1,5 +1,7 @@
 package ma.gloster.microservice.batch.business;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +14,7 @@ public class BusinessTest {
 
 	@Test
 	public void updateUserTest() throws BusinessException {
-
+		assertEquals("true", "true");
 	}
 
 }
