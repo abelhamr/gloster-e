@@ -19,7 +19,7 @@ import ma.gloster.microservice.batch.processor.UserProcessorImpl;
 import ma.gloster.microservice.batch.reader.UserReaderImpl;
 
 /**
- * The Class BatchUserConfig.
+ The Class BatchUserConfig.
  */
 @Configuration
 @EnableBatchProcessing
