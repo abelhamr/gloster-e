@@ -8,7 +8,6 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +25,6 @@ import ma.gloster.microservice.batch.reader.UserReaderImpl;
 @EnableBatchProcessing
 @EnableScheduling
 public class BatchUserConfig {
-
-	/** The step builder factory. */
-	@Autowired
-	private StepBuilderFactory stepBuilderFactory;
 
 	/** The users in job. */
 	@Value("${spring.job.userInJob.name}")
@@ -52,9 +47,10 @@ public class BatchUserConfig {
 	private static final Logger logger = Logger.getLogger(BatchUserConfig.class);
 
 	@Bean
-	public Job job(JobBuilderFactory jobBuilderFactory) {
+	public Job job(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
 		logger.info("< Début BatchUserConfig.job");
-		return jobBuilderFactory.get(usersInJob).incrementer(new RunIdIncrementer()).flow(step1()).end().build();
+		return jobBuilderFactory.get(usersInJob).incrementer(new RunIdIncrementer()).flow(step1(stepBuilderFactory))
+				.end().build();
 	}
 
 	/**
@@ -64,7 +60,7 @@ public class BatchUserConfig {
 	 * @throws BusinessException
 	 */
 	@Bean
-	public Step step1() {
+	public Step step1(StepBuilderFactory stepBuilderFactory) {
 		logger.info("< Début BatchUserConfig.step1");
 		return stepBuilderFactory.get("step1").<UserDto, UserDto>chunk(2).reader(read())
 				.processor(new UserProcessorImpl()).writer(write()).build();
