@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GlosterControllerTest.
  */
@@ -23,7 +22,8 @@ public class GlosterControllerTest {
 	/**
 	 * Perform user in job test.
 	 *
-	 * @throws Exception the exception
+	 * @throws Exception
+	 *             the exception
 	 */
 	@Test
 	public void performUserInJobTest() throws Exception {

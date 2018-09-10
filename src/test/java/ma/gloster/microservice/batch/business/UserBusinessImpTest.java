@@ -12,7 +12,6 @@ import ma.gloster.microservice.business.IUserBusiness;
 import ma.gloster.microservice.repository.UserRepository;
 import ma.gloster.microservice.repository.entity.UserEntity;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserBusinessImpTest.
  */

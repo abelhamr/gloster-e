@@ -21,7 +21,6 @@ import ma.gloster.microservice.business.IUserBusiness;
 import ma.gloster.microservice.exception.ApplicationException;
 import ma.gloster.microservice.exception.BusinessException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserJobLauncherController. this class allow us to consume the batch
  * via http request
