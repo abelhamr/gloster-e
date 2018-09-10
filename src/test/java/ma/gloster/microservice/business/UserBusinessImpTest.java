@@ -1,4 +1,4 @@
-package ma.gloster.microservice.batch.business;
+package ma.gloster.microservice.business;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;

@@ -1,4 +1,4 @@
-package ma.gloster.microservice.batch.api;
+package ma.gloster.microservice.api;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
