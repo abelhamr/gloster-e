@@ -1,13 +1,14 @@
 package ma.gloster.microservice.business;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ma.gloster.microservice.business.IUserBusiness;
 import ma.gloster.microservice.repository.UserRepository;
 import ma.gloster.microservice.repository.entity.UserEntity;
@@ -16,16 +17,12 @@ import ma.gloster.microservice.repository.entity.UserEntity;
  * The Class UserBusinessImpTest.
  */
 @SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class) 
 public class UserBusinessImpTest {
 
 	/** The user repository. */
-	@Autowired(required = true)
+	@Mock
 	private UserRepository userRepository;
-
-	/** The user business. */
-	@Autowired
-	IUserBusiness userBusiness;
 
 	/**
 	 * Update user test.
@@ -47,7 +44,8 @@ public class UserBusinessImpTest {
 	 */
 	@Test
 	public void authenticateUserTest() {
-		assertEquals(true, userBusiness.authenticateUser("batch@devops.com", "123"));
+		IUserBusiness userbusiness = mock(IUserBusiness.class);
+		when(userbusiness.authenticateUser("batch@devops.com", "123")).thenReturn(true);
 	}
 
 }

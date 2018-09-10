@@ -90,6 +90,7 @@ public class GlosterController {
 						this.message.getString("spring.controller.response.error.authentication"));
 
 			}
+			
 
 		} catch (BusinessException e) {
 			logger.error(ApplicationException.getStackTrace(e));
