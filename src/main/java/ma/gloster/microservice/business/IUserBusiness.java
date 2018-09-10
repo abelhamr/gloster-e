@@ -1,7 +1,6 @@
 package ma.gloster.microservice.business;
 
 import ma.gloster.microservice.dto.UserDto;
-import ma.gloster.microservice.exception.BusinessException;
 
 /**
  * The Interface IUserBusiness.
@@ -13,9 +12,18 @@ public interface IUserBusiness {
 	 *
 	 * @param userDto
 	 *            the user dto
-	 * @throws BusinessException
 	 */
-	public void updateUser(UserDto userDto) throws BusinessException;
+	public void updateUser(UserDto userDto);
 
-	boolean authenticateUser(String login, String password);
+	/**
+	 * User authentication.
+	 *
+	 * @param login
+	 *            the login
+	 * @param password
+	 *            the password
+	 * @return true, if successful
+	 */
+
+	public boolean authenticateUser(String login, String password);
 }

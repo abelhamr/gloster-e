@@ -23,13 +23,14 @@ public class UserReaderImpl {
 	/**
 	 * Reader.
 	 *
-	 * @param userInJobHeader the user in job header
-	 * @param fileInputPath the file input path
+	 * @param userInJobHeader
+	 *            the user in job header
+	 * @param fileInputPath
+	 *            the file input path
 	 * @return the flat file item reader
 	 */
 	@Bean
 	public FlatFileItemReader<UserDto> reader(String userInJobHeader, String fileInputPath) {
-
 		logger.info("> Début UserReaderImpl.reader");
 		FlatFileItemReader<UserDto> reader = new FlatFileItemReader<>();
 		reader.setResource(new ClassPathResource(fileInputPath));

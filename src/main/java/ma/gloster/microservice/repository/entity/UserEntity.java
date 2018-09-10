@@ -81,6 +81,23 @@ public class UserEntity {
 	}
 
 	/**
+	 * Instantiates a new user entity.
+	 *
+	 * @param adress
+	 *            the adress
+	 * @param statut
+	 *            the statut
+	 * @param email
+	 *            the email
+	 */
+	public UserEntity(String adress, String statut, String email) {
+		super();
+		this.email = email;
+		this.adress = adress;
+		this.statut = statut;
+	}
+
+	/**
 	 * Gets the id user.
 	 *
 	 * @return the id user
