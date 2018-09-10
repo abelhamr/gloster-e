@@ -1,4 +1,4 @@
-if [ ${TRAVIS_PULL_REQUEST} = 'false' ] && [[ $TRAVIS_BRANCH = 'master'  ||  ${TRAVIS_BRANCH} = 'develop' ]]; then
+if [ ${TRAVIS_PULL_REQUEST} = 'false' ] && [[ $TRAVIS_BRANCH = 'develop'  ||  ${TRAVIS_BRANCH} = 'develop' ]]; then
     echo 'Checking Quality Gates'
     mvn -B clean verify sonar:sonar  -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=gloster-e -Dsonar.organization=marocraft -Dsonar.login=${SONAR_LOGIN};
 elif [ ${TRAVIS_PULL_REQUEST} != 'false' ]; then
