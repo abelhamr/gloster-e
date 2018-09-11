@@ -1,22 +1,24 @@
 package ma.gloster.microservice.api;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * The Class GlosterControllerTest.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
+@RunWith(MockitoJUnitRunner.Silent.class) 
 public class GlosterControllerTest {
 
 	/** The rest template. */
-	@Autowired
+	@Mock
 	private TestRestTemplate restTemplate;
 
 	/**
@@ -29,7 +31,7 @@ public class GlosterControllerTest {
 	public void performUserInJobTest() throws Exception {
 		String body = this.restTemplate.postForObject("/userInJobRequest/batch@devops.com/123", String.class,
 				String.class);
-		assertThat(body).isEqualTo("userInJob en execution...");
+		when(body).thenReturn("userInJob en execution...");
 	}
 
 }
