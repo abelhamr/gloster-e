@@ -11,6 +11,23 @@
 	<name>gloster-e</name>
 	<description>Template microservice Batch</description>
 
+	<developers>
+		<developer>
+			<id>SD</id>
+			<email>soukainadahar@gmail.com</email>
+			<name>Soukaina Dahar</name>
+		</developer>
+		<developer>
+			<id>YF</id>
+			<email>theyounessfathi@gmail.com</email>
+			<name>Youness Fathi</name>
+		</developer>
+		<developer>
+			<id>MB</id>
+			<email>mostafa.bourezgui@gmail.com</email>
+			<name>Mostafa Bourezgui</name>
+		</developer>
+	</developers>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -24,9 +41,18 @@
 		<java.version>1.8</java.version>
 		<log4j.version>1.2.17</log4j.version>
 		<postgresql.version>42.1.4</postgresql.version>
+		<jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
+		<jacoco.ut.execution.data.file>${project.build.directory}/jacoco.exec</jacoco.ut.execution.data.file>
+		<jacoco.ut.execution.data.file>${project.build.directory}/jacoco.exec</jacoco.ut.execution.data.file>
+		<junit-version>5.0.0-ALPHA</junit-version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+		    <groupId>org.junit</groupId>
+		    <artifactId>junit5-engine</artifactId>
+		    <version>${junit-version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch</artifactId>
@@ -69,16 +95,29 @@
 			<artifactId>spring-batch-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-	        <groupId>org.junit.jupiter</groupId>
-	        <artifactId>junit-jupiter-engine</artifactId>
-	        <version>5.2.0</version>
-	        <scope>test</scope>
-    	</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+
+			<!-- JaCoCo configuration -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<destFile>${jacoco.it.execution.data.file}</destFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
