@@ -30,6 +30,11 @@ public class GlosterApplication {
 	/** The Constant logger. */
 	private static final Logger logger = Logger.getLogger(GlosterApplication.class);
 
+	/**
+	 * Perform user in job.
+	 *
+	 * @throws ApplicationException the application exception
+	 */
 	@Scheduled(cron = "${spring.scheduler.userInJob}")
 	public void performUserInJob() throws ApplicationException {
 		logger.info("< Début GlosterApplication.performUserInJob");
