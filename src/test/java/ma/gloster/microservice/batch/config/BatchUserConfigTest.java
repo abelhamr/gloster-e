@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import ma.gloster.microservice.dto.UserDto;
 
+
 /**
  * The Class BatchUserConfigTest.
  */

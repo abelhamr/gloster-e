@@ -16,6 +16,7 @@ import ma.gloster.microservice.business.UserBusinessImpl;
 import ma.gloster.microservice.dto.UserDto;
 import ma.gloster.microservice.exception.BusinessException;
 
+
 /**
  * The Class UserWriterImplTest.
  */
