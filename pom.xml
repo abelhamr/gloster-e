@@ -41,17 +41,17 @@
 		<java.version>1.8</java.version>
 		<log4j.version>1.2.17</log4j.version>
 		<postgresql.version>42.1.4</postgresql.version>
-		<jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
-		<jacoco.ut.execution.data.file>${project.build.directory}/jacoco.exec</jacoco.ut.execution.data.file>
+		<jacoco-maven-plugin.version>0.7.5.201505241946</jacoco-maven-plugin.version>
+		<jacoco.it.execution.data.file>${project.build.directory}/jacoco-it.exec</jacoco.it.execution.data.file>
 		<jacoco.ut.execution.data.file>${project.build.directory}/jacoco.exec</jacoco.ut.execution.data.file>
 		<junit-version>5.0.0-ALPHA</junit-version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-		    <groupId>org.junit</groupId>
-		    <artifactId>junit5-engine</artifactId>
-		    <version>${junit-version}</version>
+			<groupId>org.junit</groupId>
+			<artifactId>junit5-engine</artifactId>
+			<version>${junit-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -95,6 +95,11 @@
 			<artifactId>spring-batch-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -107,6 +112,15 @@
 				<version>${jacoco-maven-plugin.version}</version>
 				<executions>
 					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<destFile>${jacoco.ut.execution.data.file}</destFile>
+						</configuration>
+					</execution>
+					<execution>
 						<id>pre-integration-test</id>
 						<phase>pre-integration-test</phase>
 						<goals>
@@ -118,6 +132,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
