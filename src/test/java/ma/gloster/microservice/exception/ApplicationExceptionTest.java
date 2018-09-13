@@ -8,12 +8,14 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * The Class ApplicationExceptionTest.
  */
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.Silent.class)
+@PropertySource("classpath:application.properties")
 public class ApplicationExceptionTest {
 	
 	@Mock

@@ -9,6 +9,7 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.PropertySource;
 
 import ma.gloster.microservice.dto.UserDto;
 
@@ -17,7 +18,8 @@ import ma.gloster.microservice.dto.UserDto;
  * The Class BatchUserConfigTest.
  */
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.Silent.class) 
+@RunWith(MockitoJUnitRunner.Silent.class)
+@PropertySource("classpath:application.properties")
 public class BatchUserConfigTest {
 	
 	/** The job. */

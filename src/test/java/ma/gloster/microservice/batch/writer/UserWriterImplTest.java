@@ -12,6 +12,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.PropertySource;
+
 import ma.gloster.microservice.business.UserBusinessImpl;
 import ma.gloster.microservice.dto.UserDto;
 import ma.gloster.microservice.exception.BusinessException;
@@ -22,6 +24,7 @@ import ma.gloster.microservice.exception.BusinessException;
  */
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.Silent.class)
+@PropertySource("classpath:application.properties")
 public class UserWriterImplTest {
 
 	/** The user writer impl. */

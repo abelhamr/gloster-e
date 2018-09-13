@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.PropertySource;
+
 import ma.gloster.microservice.business.IUserBusiness;
 import ma.gloster.microservice.repository.UserRepository;
 import ma.gloster.microservice.repository.entity.UserEntity;
@@ -18,7 +20,8 @@ import static org.mockito.Mockito.*;
  * The Class UserBusinessImpTest.
  */
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.Silent.class) 
+@RunWith(MockitoJUnitRunner.Silent.class)
+@PropertySource("classpath:application.properties")
 public class UserBusinessImpTest {
 
 	/** The user repository. */

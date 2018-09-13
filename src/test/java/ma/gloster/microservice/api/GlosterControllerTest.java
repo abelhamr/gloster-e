@@ -9,13 +9,15 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * 
  * The Class GlosterControllerTest.
  */
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.Silent.class) 
+@RunWith(MockitoJUnitRunner.Silent.class)
+@PropertySource("classpath:application.properties")
 public class GlosterControllerTest {
 
 	/** The rest template. */
