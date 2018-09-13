@@ -5,3 +5,4 @@ cache:
 language: java
 jdk:
 - oraclejdk8
+script: ./build.sh
