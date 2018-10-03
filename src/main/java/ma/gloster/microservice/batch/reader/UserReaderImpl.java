@@ -7,6 +7,8 @@ import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+
 import ma.gloster.microservice.dto.UserDto;
 
 /**
@@ -33,7 +35,7 @@ public class UserReaderImpl {
 	public FlatFileItemReader<UserDto> reader(String userInJobHeader, String fileInputPath) {
 		logger.info("> Début UserReaderImpl.reader");
 		FlatFileItemReader<UserDto> reader = new FlatFileItemReader<>();
-		reader.setResource(new ClassPathResource(fileInputPath));
+		reader.setResource(new FileSystemResource(fileInputPath));
 		DefaultLineMapper<UserDto> defaultLineMapper = new DefaultLineMapper<>();
 		DelimitedLineTokenizer delimitedLineTokenizer = new DelimitedLineTokenizer();
 		delimitedLineTokenizer.setNames(userInJobHeader.split(INPUT_FILE_DELEMITER));
@@ -43,8 +45,6 @@ public class UserReaderImpl {
 		defaultLineMapper.setFieldSetMapper(beanWrapperFieldSetMapper);
 		reader.setLineMapper(defaultLineMapper);
 		logger.info("< Fin UserReaderImpl.reader");
-
 		return reader;
 	}
-
 }

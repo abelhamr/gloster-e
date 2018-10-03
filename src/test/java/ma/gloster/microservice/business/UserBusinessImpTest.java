@@ -34,7 +34,7 @@ public class UserBusinessImpTest {
 	@Test
 	public void updateUserTest() {
 		UserEntity user1 = new UserEntity("addressTest", "statusTest", "emailTest");
-		this.userRepository.save(user1);
+		//this.userRepository.save(user1);
 		this.userRepository.updateUser("addressTestUpdate", "addressTestUpdate", "emailTest");
 
 		UserEntity user2 = new UserEntity("addressTestUpdate", "statusTestUpdate", "emailTest");

@@ -19,13 +19,16 @@ public class UserProcessorImpl implements ItemProcessor<UserDto, UserDto> {
 	 * org.springframework.batch.item.ItemProcessor#process(java.lang.Object)
 	 */
 	public UserDto process(UserDto user) throws Exception {
-		logger.info("> Début UserProcessor.process");
+		/*logger.info("> Début UserProcessor.process");
 		final String address = user.getAddress();
 		final String email = user.getEmail();
 		final String status = user.getStatus();
 		final UserDto fixedCustomer = new UserDto(address, email, status);
 		logger.info("< Fin UserProcessor.process");
 
-		return fixedCustomer;
+		return fixedCustomer;*/
+	
+		return user;
 	}
+	
 }

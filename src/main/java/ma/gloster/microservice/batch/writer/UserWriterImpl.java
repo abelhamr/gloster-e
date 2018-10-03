@@ -41,4 +41,5 @@ public class UserWriterImpl implements ItemWriter<UserDto> {
 		logger.info("< Fin UserWriterImpl.write");
 	}
 
+
 }

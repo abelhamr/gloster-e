@@ -1,6 +1,10 @@
 package ma.gloster.microservice.business;
 
+import java.util.Date;
+import java.util.List;
+
 import ma.gloster.microservice.dto.UserDto;
+import ma.gloster.microservice.repository.entity.UserEntity;
 
 /**
  * The Interface IUserBusiness.
@@ -26,4 +30,5 @@ public interface IUserBusiness {
 	 */
 
 	public boolean authenticateUser(String login, String password);
+	public List<UserDto> selectUserBydateCreation();
 }
