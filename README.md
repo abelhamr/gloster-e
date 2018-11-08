@@ -1,9 +1,9 @@
 # Bienvenue sur Gloster-e
 
-      +C'est microservice batch
-      +C'est un point d'entrée de plusieurs projets qui veulent faire des triatments batch
-      +C'est un microservice paramètrable selon le besoin du client
-      +C'est nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
+      C'est microservice batch
+      C'est un point d'entrée de plusieurs projets qui veulent faire des triatments batch
+      C'est un microservice paramètrable selon le besoin du client
+      C'est nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
 
 ##Les fonctionnalités
 
