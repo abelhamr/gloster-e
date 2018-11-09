@@ -1,7 +1,7 @@
 # Bienvenue sur Gloster-e
 
 
-![Gloster-e](gloster-e/Plan de travail 5 copie 6@3x.png?raw=true)
+![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/master/Plan%20de%20travail%205%20copie%206%403x.png?raw=true)
 
 
 
