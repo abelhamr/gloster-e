@@ -7,7 +7,7 @@
       C'est microservice batch
       C'est un point d'entrée de plusieurs projets qui veulent faire des triatments batch
       C'est un microservice paramètrable selon le besoin
-      C'est nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projets
+      C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projets
 
 ## Les fonctionnalités
 
