@@ -1,7 +1,7 @@
 # Bienvenue sur Gloster-e
 
 
-![Gloster-e](../Plan de travail 5 copie 6@3x.png?raw=true)
+![Gloster-e](gloster-e/Plan de travail 5 copie 6@3x.png?raw=true)
 
 
 
