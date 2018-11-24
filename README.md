@@ -9,6 +9,17 @@
       C'est un point d'entrée de plusieurs projets qui veulent faire des traitements batch
       C'est un microservice paramètrable selon le besoin du client
       C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
+ 
+## To use it
+      exigence:
+       - SGBDR PostgreSQL
+       - JAVA
+       - MAVEN
+      1) configuration de la base de données  
+      2) cloner le projet : git clone https://github.com/marocraft/gloster-e.git
+      3) cd gloster-e
+      4) lancer mvn clean install 
+      5) mvn package && java -jar target/gloster-e-0.0.1-SNAPSHOT.jar
 
 ## Les fonctionnalités
 
