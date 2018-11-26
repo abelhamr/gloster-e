@@ -1,12 +1,15 @@
 # Bienvenue sur Gloster-e
 
 
+<<<<<<< HEAD
 ![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/master/Baas.png?raw=true)
 
+>>>>>>> f2b3174e821bb9eeab8af4831f6b2460f8dbd33c
 
 
       C'est microservice batch
       C'est un point d'entrée de plusieurs projets qui veulent faire des traitements batch
+<<<<<<< HEAD
       C'est un microservice paramètrable selon le besoin du client
       C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
  
@@ -20,6 +23,8 @@
       3) cd gloster-e
       4) lancer mvn clean install 
       5) mvn package && java -jar target/gloster-e-0.0.1-SNAPSHOT.jar
+
+>>>>>>> f2b3174e821bb9eeab8af4831f6b2460f8dbd33c
 
 ## Les fonctionnalités
 
