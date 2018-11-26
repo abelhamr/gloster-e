@@ -13,12 +13,13 @@
       C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
  
 ## Quick start
-      exigence:
-       - SGBDR PostgreSQL
+      exigences :
+       - SGBDR MySql
        - JAVA
        - MAVEN
-      1) configuration de la base de données  
-      2) cloner le projet : git clone https://github.com/marocraft/gloster-e.git
+      étapes :  
+      1) creation d'une base de données "baas"
+      2) cloner le projet from develop : git clone https://github.com/marocraft/gloster-e.git
       3) cd gloster-e
       4) lancer mvn clean install 
       5) mvn package && java -jar target/gloster-e-0.0.1-SNAPSHOT.jar
