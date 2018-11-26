@@ -10,7 +10,7 @@
       C'est un microservice paramètrable selon le besoin du client
       C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
  
-## To use it
+## Quick start
       exigence:
        - SGBDR PostgreSQL
        - JAVA
