@@ -35,7 +35,7 @@ public class UserReaderImpl {
 	public FlatFileItemReader<UserDto> reader(String userInJobHeader, String fileInputPath) {
 		logger.info("> Début UserReaderImpl.reader");
 		FlatFileItemReader<UserDto> reader = new FlatFileItemReader<>();
-		reader.setResource(new FileSystemResource(fileInputPath));
+		reader.setResource(new ClassPathResource(fileInputPath));
 		DefaultLineMapper<UserDto> defaultLineMapper = new DefaultLineMapper<>();
 		DelimitedLineTokenizer delimitedLineTokenizer = new DelimitedLineTokenizer();
 		delimitedLineTokenizer.setNames(userInJobHeader.split(INPUT_FILE_DELEMITER));

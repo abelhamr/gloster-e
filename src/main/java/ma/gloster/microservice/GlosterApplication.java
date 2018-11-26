@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -31,6 +32,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @EnableBatchProcessing
 @SpringBootApplication
 @EnableScheduling
+@EnableJpaRepositories
 
 public class GlosterApplication {
 
@@ -57,37 +59,37 @@ public class GlosterApplication {
 	
 
 	
-	@Scheduled(cron = "${spring.scheduler.userInJob}")
-	public void performUserInJob() throws ApplicationException {
-		System.out.println("Job1");
-		logger.info("< Début GlosterApplication.performUserInJob");
-		try {
-			JobParameters jobParameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
-					.toJobParameters();
-			jobLauncher.run(usersInJob, jobParameters);
-		} catch (Exception e) {
-			logger.error(ApplicationException.getStackTrace(e));
-			throw new ApplicationException(e);
-		}
-		logger.info("> Fin GlosterApplication.performUserInJob");
-	
-	}
-	
-		@Scheduled(cron = "${spring.scheduler.userOutJob}")
-	public void performUserOutJob() throws ApplicationException {
-			System.out.println("Job2");
-		logger.info("< Début GlosterApplication.performUserInJob");
-		try {
-			JobParameters jobParameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
-					.toJobParameters();
-			jobLauncher.run(userOutJob, jobParameters);
-		} catch (Exception e) {
-			logger.error(ApplicationException.getStackTrace(e));
-			throw new ApplicationException(e);
-		}
-		logger.info("> Fin GlosterApplication.performUserInJob");
-	
-	}
+//	@Scheduled(cron = "${spring.scheduler.userInJob}")
+//	public void performUserInJob() throws ApplicationException {
+//		
+//		logger.info("< Début GlosterApplication.performUserInJob");
+//		try {
+//			JobParameters jobParameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
+//					.toJobParameters();
+//			jobLauncher.run(usersInJob, jobParameters);
+//		} catch (Exception e) {
+//			logger.error(ApplicationException.getStackTrace(e));
+//			throw new ApplicationException(e);
+//		}
+//		logger.info("> Fin GlosterApplication.performUserInJob");
+//	
+//	}
+//	
+//		@Scheduled(cron = "${spring.scheduler.userOutJob}")
+//	public void performUserOutJob() throws ApplicationException {
+//			System.out.println("Job2");
+//		logger.info("< Début GlosterApplication.performUserInJob");
+//		try {
+//			JobParameters jobParameters = new JobParametersBuilder().addLong("time", System.currentTimeMillis())
+//					.toJobParameters();
+//			jobLauncher.run(userOutJob, jobParameters);
+//		} catch (Exception e) {
+//			logger.error(ApplicationException.getStackTrace(e));
+//			throw new ApplicationException(e);
+//		}
+//		logger.info("> Fin GlosterApplication.performUserInJob");
+//	
+//	}
 	public static void main(String[] args) {
 		
 		logger.info("< Démarage de l'application");

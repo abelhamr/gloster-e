@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import ma.gloster.microservice.dto.UserDto;
+import ma.gloster.microservice.dto.repository.RepositoryAcountDTO;
 import ma.gloster.microservice.exception.BusinessException;
 import ma.gloster.microservice.batch.writer.UserWriterImpl;
 import ma.gloster.microservice.batch.writer.UserWriterToCsvImpl;
@@ -119,7 +120,13 @@ public class BatchUserConfig {
 	@Bean
 	public FlatFileItemReader<UserDto> read() {
 		logger.info("< Début BatchUserConfig.FlatFileItemReader");
+		System.out.println("injob");
 		return new UserReaderImpl().reader(userInJobHeader, fileInputPath);
+		
+	}
+	@Bean
+	public RepositoryAcountDTO getAcountDTORepository(){
+		return new RepositoryAcountDTO();
 	}
 	
 	
