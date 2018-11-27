@@ -3,12 +3,11 @@
 
 ![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/master/Baas.png?raw=true)
 
-
-
-      C'est microservice batch
-      C'est un point d'entrée de plusieurs projets qui veulent faire des traitements batch
-      C'est un microservice paramètrable selon le besoin du client
-      C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
+#Gloster-E
+      
+        Plusieurs projet besoin d'une traitement batch ,et cela nous a amenés de réaliser un patterne se forme 
+	d'un microservice configurable qui va s'adabter avec les besoins complexes d'un projet infomatique dans 
+	un contexte entreprise dans le quel plusieurs projets veulent executer des traitement batch avec une certainne logique.
  
 ## Quick start
       exigence:
