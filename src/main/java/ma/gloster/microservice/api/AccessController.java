@@ -19,6 +19,10 @@ import ma.gloster.microservice.mapper.AccountMapper;
 
 
 
+/**
+ * @author youness
+ *
+ */
 @RestController
 public class AccessController {
 
@@ -31,16 +35,22 @@ public class AccessController {
 	 * @return
 	 */
 	@PostMapping("/createAccount")
-	public @ResponseBody ResponseEntity<String> createAcounte(@RequestBody AccountDTO accountDTO) {
+	public @ResponseBody ResponseEntity<String> createAcounte(@RequestBody String projectName) {
 		
-		AccountBus accountBus = AccountMapper.AccountDtoMappring(accountDTO);
-		String token = repositoryAccountBus.save(accountBus);
+		String token = repositoryAccountBus.save(projectName);
 		ResponseEntity<String>	responseEntity = new ResponseEntity<>("account created your token is : "+token, HttpStatus.OK);
 		return responseEntity;
 	}
 	
+	/**
+	 * @param accountDTO
+	 * @return
+	 */
 	@PostMapping("/setConfig")
 	public @ResponseBody ResponseEntity<String> setConfig(@RequestBody AccountDTO accountDTO) {
+		
+		repositoryAccountBus.setConfigAccount(accountDTO);
+		
 		ResponseEntity<String>	responseEntity = new ResponseEntity<>("config setted : ", HttpStatus.OK);
 		return responseEntity;
 	}

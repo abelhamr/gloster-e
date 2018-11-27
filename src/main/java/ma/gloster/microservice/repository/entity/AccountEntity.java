@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,8 @@ public class AccountEntity {
 	private String projectName;
 	
 	private String token;
-	@OneToMany(mappedBy = "accountEntity")
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="accountEntity")
     private Set<ConfigEntity> configEntitys = new HashSet<>();
 	
 	public AccountEntity(String projectName) {

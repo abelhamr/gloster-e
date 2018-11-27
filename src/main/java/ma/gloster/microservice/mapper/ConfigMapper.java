@@ -4,8 +4,16 @@ import ma.gloster.microservice.business.entity.ConfigBus;
 import ma.gloster.microservice.dto.ConfigDTO;
 import ma.gloster.microservice.repository.entity.ConfigEntity;
 
+/**
+ * @author youness
+ *
+ */
 public class ConfigMapper {
 	
+	/**
+	 * @param configEntity
+	 * @return
+	 */
 	public static ConfigBus ConfigEntityInfraMapping(ConfigEntity configEntity) {
 		ConfigBus configBus = new ConfigBus();
 		
@@ -18,6 +26,10 @@ public class ConfigMapper {
 		return configBus;
 	}
 	
+	/**
+	 * @param configBus
+	 * @return
+	 */
 	public static ConfigEntity ConfigBusInfraMapping(ConfigBus configBus) {
 		ConfigEntity configEntity = new ConfigEntity();
 		
@@ -30,6 +42,26 @@ public class ConfigMapper {
 		return configEntity;
 	}
 	
+	/**
+	 * @param configDTO
+	 * @return
+	 */
+	public static ConfigEntity ConfigDTOMapping(ConfigDTO configDTO) {
+		ConfigEntity configEntity = new ConfigEntity();
+		
+		configEntity.setIdConfig(configDTO.getIdConfig());
+		configEntity.setTimeLunch(configDTO.getTimeLunch());
+		configEntity.setTableNameInput(configDTO.getTableNameInput());
+		configEntity.setFileUrlInput(configDTO.getFileUrlInput());
+		configEntity.setDbUrlInput(configDTO.getDbUrlInput());
+		
+		return configEntity;
+	}
+	
+	/**
+	 * @param configDTO
+	 * @return
+	 */
 	public static ConfigBus ConfigDtoMapping(ConfigDTO configDTO) {
 		ConfigBus configBus = new ConfigBus();
 		

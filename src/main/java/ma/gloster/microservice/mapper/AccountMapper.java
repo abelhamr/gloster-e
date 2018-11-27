@@ -45,6 +45,17 @@ public class AccountMapper {
 		return accountEntity;
 	}
 	
+	public static AccountEntity AccountDTOInfraMapping(AccountDTO accountDTO) {
+		AccountEntity accountEntity = new AccountEntity();
+		accountEntity.getConfigEntitys().add(ConfigMapper.ConfigBusInfraMapping(ConfigMapper.ConfigDtoMapping(accountDTO.getConfigDTO())));
+		accountEntity.setProjectName(accountDTO.getProjectName());
+		accountEntity.setToken(accountDTO.getToken());
+		accountEntity.setIdAccount(accountDTO.getIdAccount());
+		
+		return accountEntity;
+	}
+	
+	
 	
 	
 	
@@ -86,10 +97,13 @@ public class AccountMapper {
 		return configs;
 	}
 	
+	/**
+	 * @param accountDTO
+	 * @return
+	 */
 	public static AccountBus AccountDtoMappring(AccountDTO accountDTO) {
 		
 		AccountBus accountBus = new AccountBus();
-		accountBus.setConfigBus(getSetConfigDTO(accountDTO.getConfigDTOs()));
 		accountBus.setProjectName(accountDTO.getProjectName());
 		accountBus.setToken(accountDTO.getToken());
 		accountBus.setIdAccount(accountDTO.getIdAccount());
@@ -97,6 +111,10 @@ public class AccountMapper {
 		return accountBus;
 	}
 	
+	/**
+	 * @param configDTOs
+	 * @return
+	 */
 	private static Set<ConfigBus> getSetConfigDTO(Set<ConfigDTO> configDTOs){
 		Set<ConfigBus> configs = new HashSet<>();
 		Iterator<ConfigDTO> configsIterator = configDTOs.iterator();

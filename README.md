@@ -1,26 +1,24 @@
 # Bienvenue sur Gloster-e
 
-
+	Le schema ci-dessous présente la vue globale de notre projet , tel que Gloster-E c'est un batsh as a service qui
+	exécute une logique métier derrière.
+	N.B : Baas =>batch as a service .
 
 ![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/master/Baas.png?raw=true)
 
+# Gloster-E
 
-
-
-      C'est microservice batch
-      C'est un point d'entrée de plusieurs projets qui veulent faire des traitements batch
-      C'est un microservice paramètrable selon le besoin du client
-      C'est un nouveau patterne pour mettre en ouvere la logique batch en relation avec plusieurs projet
-
+        Plusieurs projets besoin d'un traitement batch ,et cela nous a amenés de réaliser un patterne se forme d'un microservice
+	configurable qui va s'adabter avec les besoins complexes d'un projet infomatique dans un contexte d'entreprise dans
+	lequel plusieurs projets veulent executer des traitements batch avec une certaine logique.
  
 ## Quick start
-      exigences :
+      exigence:
        - SGBDR MySql
        - JAVA
        - MAVEN
-      étapes :  
-      1) creation d'une base de données "baas"
-      2) cloner le projet from develop : git clone https://github.com/marocraft/gloster-e.git
+      1) configuration de la base de données  
+      2) cloner le projet : git clone https://github.com/marocraft/gloster-e.git
       3) cd gloster-e
       4) lancer mvn clean install 
       5) mvn package && java -jar target/gloster-e-0.0.1-SNAPSHOT.jar

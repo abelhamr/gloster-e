@@ -14,21 +14,22 @@ public class AccountDTO {
 	
 	private String token;
 	
-    private Set<ConfigDTO> configDTOs = new HashSet<>();
+    private ConfigDTO configDTO;
 	
 	
 
-	public AccountDTO(Long idAccount, String projectName, String token, Set<ConfigDTO> configDTOs) {
-		super();
-		this.idAccount = idAccount;
-		this.projectName = projectName;
-		this.token = token;
-		this.configDTOs = configDTOs;
-	}
+	
 
 	public AccountDTO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public AccountDTO(String projectName, String token, ConfigDTO configDTO) {
+		super();
+		this.projectName = projectName;
+		this.token = token;
+		this.configDTO = configDTO;
 	}
 
 	public Long getIdAccount() {
@@ -55,17 +56,19 @@ public class AccountDTO {
 		this.token = token;
 	}
 
-	public Set<ConfigDTO> getConfigDTOs() {
-		return configDTOs;
+	
+	
+	public ConfigDTO getConfigDTO() {
+		return configDTO;
 	}
 
-	public void setConfigDTOs(Set<ConfigDTO> configDTOs) {
-		this.configDTOs = configDTOs;
+	public void setConfigDTO(ConfigDTO configDTO) {
+		this.configDTO = configDTO;
 	}
-	
+
 	@Override
 	public String toString() {
-		return projectName+"="+token+configDTOs.toString();	
+		return projectName+"="+token+configDTO.toString();	
 	}
 
 }

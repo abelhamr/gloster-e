@@ -22,8 +22,7 @@ public class ConfigEntity {
 	private String dbNameOutput;
 	private String timeLunch;
 
-	@ManyToOne(fetch = FetchType.LAZY , cascade=CascadeType.ALL)
-    @JoinColumn(name = "fk_account")
+	@ManyToOne(fetch = FetchType.LAZY)
 	private AccountEntity accountEntity;
 
 
