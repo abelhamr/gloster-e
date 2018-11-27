@@ -1,6 +1,6 @@
 # Bienvenue sur Gloster-e
 
-	architecture ci-dessous présente la vue globale de notre projet , tel que Gloster-E c'est un batsh as a service qui
+	Le schema ci-dessous présente la vue globale de notre projet , tel que Gloster-E c'est un batsh as a service qui
 	exécute une logique métier derrière.
 	N.B : Baas =>batch as a service .
 
@@ -8,9 +8,9 @@
 
 # Gloster-E
 
-        Plusieurs projet besoin d'un traitement batch ,et cela nous a amenés de réaliser un patterne se forme d'un microservice
+        Plusieurs projets besoin d'un traitement batch ,et cela nous a amenés de réaliser un patterne se forme d'un microservice
 	configurable qui va s'adabter avec les besoins complexes d'un projet infomatique dans un contexte d'entreprise dans
-	lequel plusieurs projets veulent executer des traitement batch avec une certaine logique.
+	lequel plusieurs projets veulent executer des traitements batch avec une certaine logique.
  
 ## Quick start
       exigence:
