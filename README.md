@@ -1,5 +1,7 @@
 # Bienvenue sur Gloster-e
 
+	architecture ci-dessous présente la vue globale de notre projet , tel que Gloster-E c'est un batsh as a service qui exécute un logique métier derrière.
+	N.B : Baas =>batch as a service .
 
 ![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/master/Baas.png?raw=true)
 
