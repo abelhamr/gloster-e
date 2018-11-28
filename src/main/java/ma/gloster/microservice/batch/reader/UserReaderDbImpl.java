@@ -23,7 +23,7 @@ public class UserReaderDbImpl {
 	DataSource dataSosurce;
 	
 	@Value("${spring.job.userOutJob.sql}")
-	private String sqlRequête;
+	private String sqlRequete;
 	
 	@Value("${spring.datasource.driver-class-name}")
 	private  String driverPostgresql;
