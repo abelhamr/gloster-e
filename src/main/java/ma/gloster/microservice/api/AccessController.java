@@ -1,7 +1,4 @@
 package ma.gloster.microservice.api;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,14 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import ma.gloster.microservice.business.entity.AccountBus;
 import ma.gloster.microservice.business.repository.RepositoryAccountBus;
 import ma.gloster.microservice.dto.AccountDTO;
-
-import ma.gloster.microservice.dto.repository.RepositoryAcountDTO;
-import ma.gloster.microservice.mapper.AccountMapper;
-
 
 
 /**
