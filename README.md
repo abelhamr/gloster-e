@@ -2,7 +2,6 @@
 
 	Le schema ci-dessous présente la vue globale de notre projet , tel que Gloster-E c'est un batsh as a service qui
 	exécute une logique métier derrière.
-	N.B : Baas =>batch as a service .
 
 ![Gloster-e](https://raw.githubusercontent.com/marocraft/gloster-e/develop/Baas.JPG?raw=true)
 
