@@ -120,7 +120,6 @@ public class BatchUserConfig {
 	@Bean
 	public FlatFileItemReader<UserDto> read() {
 		logger.info("< Début BatchUserConfig.FlatFileItemReader");
-		System.out.println("injob");
 		return new UserReaderImpl().reader(userInJobHeader, fileInputPath);
 		
 	}
