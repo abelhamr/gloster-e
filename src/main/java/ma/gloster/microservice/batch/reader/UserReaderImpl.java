@@ -7,8 +7,6 @@ import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-
 import ma.gloster.microservice.dto.UserDto;
 
 /**
