@@ -33,9 +33,9 @@ public class RepositoryAccountBus {
 	 * @param accountBus
 	 * @return
 	 */
-	public String save(String projectName) {
+	public String save(AccountDTO accountDTO) {
 		
-		AccountEntity accountEntity = new AccountEntity(projectName);
+		AccountEntity accountEntity = new AccountEntity(accountDTO.getProjectName());
 		accountEntity.generateToken();
 		String token = accountEntity.getToken();
 		

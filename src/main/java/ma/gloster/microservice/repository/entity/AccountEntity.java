@@ -26,6 +26,8 @@ public class AccountEntity {
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="accountEntity")
     private Set<ConfigEntity> configEntitys = new HashSet<>();
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="accountEntity")
+    private Set<LogicEntity> logicEntitys = new HashSet<>();
 	
 	public AccountEntity(String projectName) {
 		super();

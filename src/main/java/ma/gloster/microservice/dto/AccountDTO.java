@@ -68,7 +68,11 @@ public class AccountDTO {
 
 	@Override
 	public String toString() {
-		return projectName+"="+token+configDTO.toString();	
+		if(this.configDTO!=null) {
+			return projectName+"="+token+configDTO.toString();
+		}else {
+			return projectName+"="+token;
+		}
 	}
 
 }

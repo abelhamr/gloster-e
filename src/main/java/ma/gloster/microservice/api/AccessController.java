@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import ma.gloster.microservice.business.BatchExecution;
 import ma.gloster.microservice.business.entity.AccountBus;
 import ma.gloster.microservice.business.repository.RepositoryAccountBus;
 import ma.gloster.microservice.dto.AccountDTO;
-
+import ma.gloster.microservice.dto.LogicDTO;
+import ma.gloster.microservice.dto.ResponseDTO;
 import ma.gloster.microservice.dto.repository.RepositoryAcountDTO;
 import ma.gloster.microservice.mapper.AccountMapper;
 
@@ -35,10 +37,11 @@ public class AccessController {
 	 * @return
 	 */
 	@PostMapping("/createAccount")
-	public @ResponseBody ResponseEntity<String> createAcounte(@RequestBody String projectName) {
+	public @ResponseBody ResponseEntity<ResponseDTO> createAcounte(@RequestBody AccountDTO accountDTO) {
 		
-		String token = repositoryAccountBus.save(projectName);
-		ResponseEntity<String>	responseEntity = new ResponseEntity<>("account created your token is : "+token, HttpStatus.OK);
+		String token = repositoryAccountBus.save(accountDTO);
+		ResponseDTO responseDTO = new ResponseDTO("account created your token is",token);
+		ResponseEntity<ResponseDTO>	responseEntity = new ResponseEntity<>(responseDTO, HttpStatus.OK);
 		return responseEntity;
 	}
 	
@@ -47,14 +50,26 @@ public class AccessController {
 	 * @return
 	 */
 	@PostMapping("/setConfig")
-	public @ResponseBody ResponseEntity<String> setConfig(@RequestBody AccountDTO accountDTO) {
-		
+	public @ResponseBody ResponseEntity<ResponseDTO> setConfig(@RequestBody AccountDTO accountDTO) {
+	
 		repositoryAccountBus.setConfigAccount(accountDTO);
-		
-		ResponseEntity<String>	responseEntity = new ResponseEntity<>("config setted : ", HttpStatus.OK);
+		ResponseDTO responseDTO = new ResponseDTO("config setted");
+		ResponseEntity<ResponseDTO>	responseEntity = new ResponseEntity<>(responseDTO, HttpStatus.OK);
 		return responseEntity;
 	}
-
+	
+	@PostMapping("/executeLogique")
+	public @ResponseBody ResponseEntity<ResponseDTO> setLogiqueForProject(@RequestBody LogicDTO logicDTO ){
+		
+		if(logicDTO.getGroovyFunction()!=null && logicDTO.getGroovyFunction().length()!= 0 ) {
+			BatchExecution.executeGroovyScript(logicDTO.getGroovyFunction());
+		}else {
+			BatchExecution.executeSqlQuery(logicDTO.getSqlQuery());
+		}
+		ResponseDTO responseDTO = new ResponseDTO("your treatment is in");
+		ResponseEntity<ResponseDTO>	responseEntity = new ResponseEntity<>(responseDTO, HttpStatus.OK);
+		return responseEntity;
+	}
 	@PostMapping("/getConfig")
 	public @ResponseBody String getAllConfig(@RequestBody AccountDTO accountDTO){
 		return null;
