@@ -7,8 +7,8 @@
 
 # Gloster-E
 
-        Plusieurs projets besoin d'un traitement batch ,et cela nous a amenés de réaliser un patterne se forme d'un microservice
-	configurable qui va s'adabter avec les besoins complexes d'un projet infomatique dans un contexte d'entreprise dans
+        Plusieurs projets ont besoin d'un traitement batch ,et cela nous a amenés de réaliser un patterne sous forme d'un microservice
+	configurable qui va s'adapter avec les besoins complexes d'un projet infomatique dans un contexte d'entreprise dans
 	lequel plusieurs projets veulent executer des traitements batch avec une certaine logique.
  
 ## Quick start
